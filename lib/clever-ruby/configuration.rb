@@ -127,7 +127,7 @@ module Clever
     def initialize
       @scheme = 'https'
       @host = 'api.clever.com'
-      @base_path = 'https://api.clever.com/v2.1'
+      @base_path = '/v2.1'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
@@ -171,7 +171,8 @@ module Clever
     end
 
     def base_url
-      "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '')
+      url = "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '')
+      Addressable::URI.escape(url)
     end
 
     # Gets API key (with prefix if set).
