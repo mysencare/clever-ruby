@@ -7,5 +7,5 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] 
 **type** | **String** |  | 
 **data** | [**SchoolObject**](SchoolObject.md) |  | [optional] 
-
+**previous_attributes** | **Object** |  | [optional] 
 

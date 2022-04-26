@@ -7,5 +7,5 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] 
 **type** | **String** |  | 
 **data** | [**ContactObject**](ContactObject.md) |  | [optional] 
-
+**previous_attributes** | **Object** |  | [optional] 
 

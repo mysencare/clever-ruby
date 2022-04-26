@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **dob** | **String** |  | [optional] 
 **ell_status** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
+**enrollments** | [**Array&lt;SchoolEnrollment&gt;**](SchoolEnrollment.md) |  | [optional] 
+**ext** | **Object** |  | [optional] 
 **gender** | **String** |  | [optional] 
 **grade** | **String** |  | [optional] 
 **graduation_year** | **String** |  | [optional] 
@@ -27,5 +29,4 @@ Name | Type | Description | Notes
 **student_number** | **String** |  | [optional] 
 **unweighted_gpa** | **String** |  | [optional] 
 **weighted_gpa** | **String** |  | [optional] 
-
 

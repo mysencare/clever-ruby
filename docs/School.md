@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created** | **String** |  | [optional] 
 **district** | **String** |  | [optional] 
+**ext** | **Object** |  | [optional] 
 **high_grade** | **String** |  | [optional] 
 **id** | **String** |  | [optional] 
 **last_modified** | **String** |  | [optional] 
@@ -18,5 +19,4 @@ Name | Type | Description | Notes
 **school_number** | **String** |  | [optional] 
 **sis_id** | **String** |  | [optional] 
 **state_id** | **String** |  | [optional] 
-
 

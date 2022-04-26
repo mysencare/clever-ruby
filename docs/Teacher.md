@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **credentials** | [**Credentials**](Credentials.md) |  | [optional] 
 **district** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
+**ext** | **Object** |  | [optional] 
 **id** | **String** |  | [optional] 
 **last_modified** | **String** |  | [optional] 
 **name** | [**Name**](Name.md) |  | [optional] 
@@ -16,5 +17,4 @@ Name | Type | Description | Notes
 **state_id** | **String** |  | [optional] 
 **teacher_number** | **String** |  | [optional] 
 **title** | **String** |  | [optional] 
-
 
