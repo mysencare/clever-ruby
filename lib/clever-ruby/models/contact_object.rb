@@ -25,7 +25,7 @@ module Clever
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'object' => :'Object'
+        :'object' => :'Contact'
       }
     end
 

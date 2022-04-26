@@ -28,7 +28,7 @@ module Clever
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Object',
+        :'data' => :'Array<CourseResponse>',
         :'links' => :'Object'
       }
     end
