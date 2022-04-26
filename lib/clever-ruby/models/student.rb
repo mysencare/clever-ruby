@@ -301,7 +301,7 @@ module Clever
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] grade Object to be assigned
     def grade=(grade)
-      validator = EnumAttributeValidator.new('String', ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "PreKindergarten", "Kindergarten", "PostGraduate", "Other"])
+      validator = EnumAttributeValidator.new('String', ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "PreKindergarten", "Kindergarten", "PostGraduate", "Other", "TransitionalKindergarten", "Preschool", "13", "Ungraded"])
       unless validator.valid?(grade)
         fail ArgumentError, "invalid value for 'grade', must be one of #{validator.allowable_values}."
       end
