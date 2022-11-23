@@ -145,7 +145,7 @@ module Clever
         :'student_number' => :'String',
         :'unweighted_gpa' => :'String',
         :'weighted_gpa' => :'String',
-        :'ext' => :'Hash',
+        :'ext' => :'Object',
       }
     end
 
@@ -388,7 +388,7 @@ module Clever
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created, credentials, district, dob, ell_status, email, gender, grade, graduation_year, hispanic_ethnicity, home_language, id, iep_status, last_modified, location, name, race, school, schools, sis_id, state_id, student_number, unweighted_gpa, weighted_gpa].hash
+      [created, credentials, district, dob, ell_status, email, gender, grade, graduation_year, hispanic_ethnicity, home_language, id, iep_status, last_modified, location, name, race, school, schools, sis_id, state_id, student_number, unweighted_gpa, weighted_gpa, ext].hash
     end
 
     # Builds the object from hash
