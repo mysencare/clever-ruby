@@ -63,6 +63,8 @@ module Clever
 
     attr_accessor :weighted_gpa
 
+    attr_accessor :ext
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -111,7 +113,8 @@ module Clever
         :'state_id' => :'state_id',
         :'student_number' => :'student_number',
         :'unweighted_gpa' => :'unweighted_gpa',
-        :'weighted_gpa' => :'weighted_gpa'
+        :'weighted_gpa' => :'weighted_gpa',
+        :'ext' => :'ext'
       }
     end
 
@@ -141,7 +144,8 @@ module Clever
         :'state_id' => :'String',
         :'student_number' => :'String',
         :'unweighted_gpa' => :'String',
-        :'weighted_gpa' => :'String'
+        :'weighted_gpa' => :'String',
+        :'ext' => :'Hash',
       }
     end
 
@@ -249,6 +253,10 @@ module Clever
 
       if attributes.has_key?(:'weighted_gpa')
         self.weighted_gpa = attributes[:'weighted_gpa']
+      end
+
+      if attributes.has_key?(:'ext')
+        self.ext = attributes[:'ext']
       end
 
     end
