@@ -155,7 +155,7 @@ module Clever
       return unless attributes.is_a?(Hash)
 
       # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+      attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
       if attributes.has_key?(:'created')
         self.created = attributes[:'created']
@@ -255,9 +255,11 @@ module Clever
         self.weighted_gpa = attributes[:'weighted_gpa']
       end
 
-      if attributes.has_key?(:'ext')
-        self.ext = attributes[:'ext']
-      end
+      self.ext = if attributes.has_key?(:'ext')
+                   attributes[:'ext']
+                 else
+                   {}
+                 end
 
     end
 
@@ -351,30 +353,30 @@ module Clever
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          created == o.created &&
-          credentials == o.credentials &&
-          district == o.district &&
-          dob == o.dob &&
-          ell_status == o.ell_status &&
-          email == o.email &&
-          gender == o.gender &&
-          grade == o.grade &&
-          graduation_year == o.graduation_year &&
-          hispanic_ethnicity == o.hispanic_ethnicity &&
-          home_language == o.home_language &&
-          id == o.id &&
-          iep_status == o.iep_status &&
-          last_modified == o.last_modified &&
-          location == o.location &&
-          name == o.name &&
-          race == o.race &&
-          school == o.school &&
-          schools == o.schools &&
-          sis_id == o.sis_id &&
-          state_id == o.state_id &&
-          student_number == o.student_number &&
-          unweighted_gpa == o.unweighted_gpa &&
-          weighted_gpa == o.weighted_gpa
+        created == o.created &&
+        credentials == o.credentials &&
+        district == o.district &&
+        dob == o.dob &&
+        ell_status == o.ell_status &&
+        email == o.email &&
+        gender == o.gender &&
+        grade == o.grade &&
+        graduation_year == o.graduation_year &&
+        hispanic_ethnicity == o.hispanic_ethnicity &&
+        home_language == o.home_language &&
+        id == o.id &&
+        iep_status == o.iep_status &&
+        last_modified == o.last_modified &&
+        location == o.location &&
+        name == o.name &&
+        race == o.race &&
+        school == o.school &&
+        schools == o.schools &&
+        sis_id == o.sis_id &&
+        state_id == o.state_id &&
+        student_number == o.student_number &&
+        unweighted_gpa == o.unweighted_gpa &&
+        weighted_gpa == o.weighted_gpa
     end
 
     # @see the `==` method
@@ -399,7 +401,7 @@ module Clever
           # check to ensure the input is an array given that the the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
-            self.send("#{key}=", attributes[self.class.attribute_map[key]].map{ |v| _deserialize($1, v) } )
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
@@ -445,7 +447,8 @@ module Clever
             hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
           end
         end
-      else # model
+      else
+        # model
         temp_model = Clever.const_get(type).new
         temp_model.build_from_hash(value)
       end
@@ -481,7 +484,7 @@ module Clever
     # @return [Hash] Returns the value in the form of hash
     def _to_hash(value)
       if value.is_a?(Array)
-        value.compact.map{ |v| _to_hash(v) }
+        value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
