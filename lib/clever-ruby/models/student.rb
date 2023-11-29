@@ -24,6 +24,8 @@ module Clever
     attr_accessor :dob
 
     attr_accessor :ell_status
+    
+    attr_accessor :frl_status
 
     attr_accessor :email
 
@@ -95,6 +97,7 @@ module Clever
         :'district' => :'district',
         :'dob' => :'dob',
         :'ell_status' => :'ell_status',
+        :'frl_status' => :'frl_status',
         :'email' => :'email',
         :'gender' => :'gender',
         :'grade' => :'grade',
@@ -126,6 +129,7 @@ module Clever
         :'district' => :'String',
         :'dob' => :'String',
         :'ell_status' => :'String',
+        :'frl_status' => :'String',
         :'email' => :'String',
         :'gender' => :'String',
         :'grade' => :'String',
@@ -171,6 +175,10 @@ module Clever
 
       if attributes.has_key?(:'dob')
         self.dob = attributes[:'dob']
+      end
+
+      if attributes.has_key?(:'frl_status')
+        self.frl_status = attributes[:'frl_status']
       end
 
       if attributes.has_key?(:'ell_status')
@@ -273,6 +281,8 @@ module Clever
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      frl_status_validator = EnumAttributeValidator.new('String', ["Free", "Reduced", "Paid", ""])
+      return false unless frl_status_validator.valid?(@frl_status)
       ell_status_validator = EnumAttributeValidator.new('String', ["Y", "N", ""])
       return false unless ell_status_validator.valid?(@ell_status)
       gender_validator = EnumAttributeValidator.new('String', ["M", "F", "X", ""])
@@ -296,6 +306,16 @@ module Clever
         fail ArgumentError, "invalid value for 'ell_status', must be one of #{validator.allowable_values}."
       end
       @ell_status = ell_status
+    end
+    
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] ell_status Object to be assigned
+    def frl_status=(frl_status)
+      validator = EnumAttributeValidator.new('String', ["Free", "Reduced", "Paid", ""])
+      unless validator.valid?(frl_status)
+        fail ArgumentError, "invalid value for 'frl_status', must be one of #{validator.allowable_values}."
+      end
+      @frl_status = frl_status
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -358,6 +378,7 @@ module Clever
         district == o.district &&
         dob == o.dob &&
         ell_status == o.ell_status &&
+        frl_status == o.frl_status &&
         email == o.email &&
         gender == o.gender &&
         grade == o.grade &&
@@ -388,7 +409,7 @@ module Clever
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created, credentials, district, dob, ell_status, email, gender, grade, graduation_year, hispanic_ethnicity, home_language, id, iep_status, last_modified, location, name, race, school, schools, sis_id, state_id, student_number, unweighted_gpa, weighted_gpa, ext].hash
+      [created, credentials, district, dob, frl_status, ell_status, email, gender, grade, graduation_year, hispanic_ethnicity, home_language, id, iep_status, last_modified, location, name, race, school, schools, sis_id, state_id, student_number, unweighted_gpa, weighted_gpa, ext].hash
     end
 
     # Builds the object from hash

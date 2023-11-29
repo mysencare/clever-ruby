@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **district** | **String** |  | [optional] 
 **dob** | **String** |  | [optional] 
 **ell_status** | **String** |  | [optional] 
+**frl_status** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
 **gender** | **String** |  | [optional] 
 **grade** | **String** |  | [optional] 
